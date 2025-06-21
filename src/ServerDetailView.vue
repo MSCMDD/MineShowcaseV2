@@ -81,12 +81,13 @@ function copy(link, text) {
 
 <template>
     <Page>
-        <main class="server-detail" style="padding-top: 90px">
+        <main class="server-detail">
             <Router :path="['home','list',server.name]"></Router>
 
             <div class="server-info-header">
                 <div style="flex: 1 1 0" id="server-desc">
                     <img alt="server icon" v-if="online" width="100" height="100" style="margin-right: 20px;float: left" decoding="async" :src="server.status.icon">
+                    <!--suppress CheckImageSize -->
                     <img alt="server icon" v-else width="100" height="100" style="margin-right: 20px;float: left" decoding="async"
                          src="../public/assets/images/unknown-server.png">
 
@@ -114,12 +115,12 @@ function copy(link, text) {
             </div>
 
             <div class="box-container">
-                <div class="box box-a modal oreui-card" style="">
+                <div class="box box-a oreui-dark-card oreui-card" style="">
                     <div class="modal_button_area">
-                        <div class="tab_bar_area main_tab_bar" style="width: 100%;">
-                            <div class="tab_bar">
-                                <button :class="page==='desc'? 'active':'no_active'" @click="page='desc'" class="tab_bar_btn ">服务器描述</button>
-                                <button :class="page!=='desc'? 'active':'no_active'" class="tab_bar_btn" @click="page='gallery'">画廊</button>
+                        <div class="oreui-tab-area oreui-tab-bar" style="width: 100%;">
+                            <div class="oreui-tab-bar">
+                                <button :class="page==='desc'? 'active':'no_active'" @click="page='desc'" class="oreui-tab-button ">服务器描述</button>
+                                <button :class="page!=='desc'? 'active':'no_active'" class="oreui-tab-button" @click="page='gallery'">画廊</button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +133,7 @@ function copy(link, text) {
                                 <div>
                                     <div class="server-image" :style="{ backgroundImage: `url(${data.image_url})` }"></div>
 
-                                    <div class="oreui-highlight-card" style="text-align: left">
+                                    <div class="oreui-light-card" style="text-align: left">
                                         <h3>{{ data.title }}</h3>
                                         <p>{{ data.description }}</p>
                                     </div>
@@ -142,7 +143,7 @@ function copy(link, text) {
                     </div>
                 </div>
 
-                <div class="box box-b modal oreui-card" style="text-align: left">
+                <div class="box box-b oreui-dark-card oreui-card" style="text-align: left">
                     <div class="modal_button_area">
                         <h3 style="margin: 16px">服务器信息</h3>
                     </div>
@@ -262,7 +263,7 @@ function copy(link, text) {
 
 @media (max-width: 660px) {
     #server-desc {
-        min-width: 600px;
+        min-width: 100%;
     }
 }
 

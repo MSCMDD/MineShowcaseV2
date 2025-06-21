@@ -806,7 +806,7 @@ nav ul li a.active {
     width: 18px;
     height: 18px;
     accent-color: #3C8527;
-    background-color: #48494A;
+    background-color: var(--oreui-bg-light);
 }
 
 .filter-checkbox label {
@@ -924,14 +924,19 @@ nav ul li a.active {
     }
 }
 
+header{
+    width: 100vw !important;
+}
+
 .bg {
     background-image: url("https://pic1.imgdb.cn/item/684d16d858cb8da5c84b8b41.png");
     background-attachment: fixed;
     background-size: cover;
 
     position: fixed;
+    position: -ms-device-fixed;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
 
@@ -1046,7 +1051,7 @@ nav ul li a.active {
 .server-tag {
     font-size: 12px;
     padding: 4px 10px 4px 8px;
-    background-color: #48494A;
+    background-color: var(--oreui-bg-light);
     color: var(--text-secondary);
     display: inline-flex;
     align-items: center;

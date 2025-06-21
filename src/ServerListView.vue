@@ -152,12 +152,12 @@ function unlockUI() {
 
 <template>
     <Page>
-        <main class="server-list-container" style="padding-top: 100px">
+        <main class="server-list-container">
             <div class="container">
                 <Router :path="['home','list']"></Router>
 
                 <!-- 筛选区域 -->
-                <div class="filter-section oreui-card modal">
+                <div class="filter-section oreui-card oreui-dark-card">
                     <div style="width: 100%;text-align: left;margin-bottom: 20px">
                         <h2>服务器列表</h2>
                     </div>
@@ -178,7 +178,7 @@ function unlockUI() {
 
                     <div style="display: flex;align-items: center">
                         <div style="flex: 1 1 0" class="filter-checkbox">
-                            <input class="modal_checkbox_area custom-checkbox" checked="" type="checkbox" id="show-non-member" v-model="member">
+                            <input checked="" type="checkbox" id="show-non-member" v-model="member">
                             <label for="show-non-member">显示非成员服</label>
 
                             <input type="checkbox" id="java-filter" checked="checked" v-model="official">
@@ -205,7 +205,6 @@ function unlockUI() {
                 </div>
 
                 <!-- 服务器列表容器 -->
-
                 <div class="servers-grid" id="server-list" v-if="validate(result)">
                     <template v-for="server of result" :key=server.id>
                         <ServerCard :server=server></ServerCard>
@@ -213,7 +212,7 @@ function unlockUI() {
                 </div>
 
                 <div class="no-results">
-                    <div class="modal oreui-card" style="padding: 10px">
+                    <div class="oreui-dark-card oreui-card" style="padding: 10px">
                         <p id="list-info">当前为第 {{ currentPage }}/{{ pages }}页({{ amountPerPage }}条/页)</p>
 
                         <button @click="prev" id="prev-page" class="oreui-button oreui-small-btn oreui-important-btn">上一页</button>

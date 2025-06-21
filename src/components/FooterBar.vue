@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <footer class="modal">
+    <footer class="oreui-dark-card">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -10,8 +10,9 @@
                     <span>MSCPO</span>
                 </div>
                 <div class="footer-links">
-                    <a href="https://codeberg.org/mscpo/pages/">页面 由 GrassBlock2022 制作</a>
-                    <a href="https://codeberg.org/mscpo/pages/">Powered by Vite</a>
+                    <a href="https://github.com/MSCPO/MineShowcaseV2">MSCPO / Mine Showcase V2 - OREUI_b3</a>
+                    <a href="https://space.bilibili.com/617491730">页面 由 GrassBlock2022 制作</a>
+                    <a href="https://vite.dev/">Powered by Vite</a>
                 </div>
             </div>
             <div class="copyright">

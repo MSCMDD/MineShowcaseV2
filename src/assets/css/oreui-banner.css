@@ -1,0 +1,23 @@
+.oreui-banner-area {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.oreui-bg-info {
+    background-color: var(--oreui-color-info)
+}
+
+.oreui-banner {
+    align-items: center;
+    color: #FFFFFF;
+    font-family: "NotoSans Bold", sans-serif;
+    hyphens: auto;
+    justify-content: center;
+    margin: 10px 20px;
+    min-height: 30px;
+    padding: 10px;
+    text-align: center;
+    width: calc(100% - 40px);
+    word-wrap: break-word;
+}

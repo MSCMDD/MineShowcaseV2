@@ -6,7 +6,7 @@ import "./assets/fonts/fa/css/fa-all.min.css"
 import ServerCard from "./components/ServerCard.vue";
 
 const PH_SERVER = {
-    "id": 72,
+    "id": -1,
     "name": "虚位以待...",
     "ip": "example.org",
     "type": "JAVA",
@@ -38,7 +38,7 @@ const PH_SERVER = {
 
 <template>
     <Page>
-        <section class="hero" style="padding-top: 180px;padding-bottom: 180px;text-align: center">
+        <section class="hero" style="padding-bottom: 180px;padding-top:100px;text-align: center">
             <div class="container">
                 <h1>MSCPO - Minecraft服务器集体宣传组织</h1>
                 <p>汇聚优质服务器，为玩家和服主搭建桥梁</p>
@@ -105,7 +105,7 @@ const PH_SERVER = {
         </section>
 
         <!-- 关于我们 -->
-        <section id="about" class="about-section modal" style="text-align: left">
+        <section id="about" class="about-section oreui-dark-card" style="text-align: left">
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">

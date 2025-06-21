@@ -5,19 +5,11 @@ const mobileOpen = ref(false)
 const mobileDropdown1 = ref(false)
 
 function toggleMobileBar(){
-    if(mobileOpen.value){
-        mobileOpen.value = false;
-    }else{
-        mobileOpen.value = true;
-    }
+    mobileOpen.value = !mobileOpen.value;
 }
 
 function toggleMobileDropdown1(){
-    if(mobileDropdown1.value){
-        mobileDropdown1.value = false;
-    }else{
-        mobileDropdown1.value = true;
-    }
+    mobileDropdown1.value = !mobileDropdown1.value;
 }
 </script>
 
@@ -65,7 +57,7 @@ function toggleMobileDropdown1(){
         </div>
 
         <!-- 添加移动菜单容器 -->
-        <div class="mobile-menu oreui-card modal" :class="mobileOpen?'active':''" id="mobileMenu">
+        <div class="mobile-menu oreui-card oreui-dark-card" :class="mobileOpen?'active':''" id="mobileMenu">
             <ul>
                 <li><a href="/">首页</a></li>
                 <li><a href="/servers.html">服务器列表</a></li>

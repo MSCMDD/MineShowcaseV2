@@ -1,6 +1,6 @@
 <script setup>
 
-import Navbar from "./Navbar.vue";
+import Navbar from "./Header.vue";
 import FooterBar from "./FooterBar.vue";
 
 import '../assets/css/oreui.css'
@@ -14,7 +14,7 @@ onMounted(() => {
         b.addEventListener('click', () => sound())
     }
 
-    for (const b of document.getElementsByClassName('tab_bar_btn')) {
+    for (const b of document.getElementsByClassName('oreui-tab-button')) {
         b.addEventListener('click', () => sound())
     }
 })
@@ -24,6 +24,21 @@ onMounted(() => {
 <template>
     <Navbar></Navbar>
     <div class="bg"></div>
+
+    <div style="height: 80px"></div>
+
+    <div class="oreui-banner-area">
+        <div class="oreui-banner oreui-bg-info">
+            当前页面为预览版本，不保证与最终发布效果一致。
+            出现任何问题请反馈：
+
+            <a href="https://github.com/MSCPO/MineShowcaseV2/issues" style="display:inline;;text-decoration: underline" target="_blank">
+                [点击此处]
+            </a>
+
+        </div>
+    </div>
+
     <slot></slot>
     <FooterBar></FooterBar>
 

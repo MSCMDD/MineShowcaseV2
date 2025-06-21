@@ -1,126 +1,63 @@
 @import "oreui-button.css";
+@import "oreui-banner.css";
+@import "oreui-tab.css";
 
-/*
- * Copyright © 2020. Spectrollay
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-
-html{
-    --oreui-theme: #3C8527;
-    --oreui-theme-dark: #1D4D13;
+@font-face {
+    font-family: "Minecraft Seven";
+    src: url("../fonts/minecraft-seven.ttf");
 }
 
+html {
+    --oreui-theme: #3C8527;
+    --oreui-theme-dark: #1D4D13;
+    --oreui-color-info: #2E6BE5;
+    --oreui-bg-dark: #313233;
 
-/* TabBar标签栏组件 */
-.tab_bar_area {
+    --oreui-light-top: #5A5B5C;
+    --oreui-light-bottom: #333334;
+    --oreui-bg-light: #48494A;
+}
+
+.oreui-header {
     align-items: center;
+    background-color: #E6E8EB;
+    border-bottom: 4px solid #B1B2B5;
     display: flex;
-    justify-content: center;
-    min-width: 330px;
+    height: 60px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
     z-index: 9;
 }
 
-.tab_bar_area.main_tab_bar {
-    height: 62px;
-    left: 0;
-    right: 0;
-    top: 56px;
-}
-
-.tab_bar_with_banner.main_tab_bar {
-    top: 96px;
-}
-
-.tab_bar {
+.header-item, .header-logo {
+    align-items: center;
     display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    position: relative;
-    width: calc(100% - 40px);
+    height: 100%;
+    justify-content: center;
 }
 
-.tab_bar_btn {
-    background-color: #48494A;
-    border: 2px solid #1E1E1F;
-    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
-    color: white;
-    cursor: pointer;
-    flex: 1;
-    font-family: "NotoSans Bold", sans-serif;
-    height: 50px;
-    justify-self: center;
-    padding-bottom: 6px;
-    position: relative;
-    transition: background-color 0.3s;
+.oreui-dark-card {
+    background-color: var(--oreui-bg-dark);
+    color: #FFFFFF;
+    display: block;
+    text-align: center;
 }
 
-.tab_bar_btn:hover {
-    background-color: #58585A;
-    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
+.oreui-light-card {
+    background-color: var(--oreui-bg-light);
+    border-bottom: 2px solid var(--oreui-light-bottom);
+    border-top: 2px solid var(--oreui-light-top);
+    padding: 1.03rem;
 }
 
-.tab_bar_btn:active {
-    background-color: #313233;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1);
-    height: 46px;
-    margin-top: 4px;
-    padding-bottom: 2px;
+body {
+    font-family: 'Minecraft Seven', sans-serif !important;
 }
 
-.tab_bar_btn::after {
-    background-color: white;
-    bottom: 0;
-    content: "";
-    height: 3px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%) scaleX(0);
-    transition: transform 0.3s;
-    width: 20%;
-}
 
-.tab_bar_btn.active {
-    background-color: #313233;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1);
-    cursor: default;
-    height: 46px;
-    margin-top: 4px;
-    padding-bottom: 2px;
-}
-
-.tab_bar_btn:hover::after,
-.tab_bar_btn.active::after {
-    transform: translateX(-50%) scaleX(1);
-    width: 20%;
-}
-
-.tab_bar_btn.no_active:hover::after,
-.tab_bar_btn.no_active::after {
-    height: 4px;
-}
-
-.tab_bar_btn.no_active:active::after {
-    height: 3px;
-}
-
+/*origin oreui.css -not merged*/
 .tab_content {
     color: #FFFFFF;
     display: none;
@@ -140,115 +77,6 @@ html{
 }
 
 
-
-/* 文章样式 */
-article_block {
-    display: block;
-    min-width: 270px;
-    text-align: center;
-    width: 90%;
-}
-
-article_title {
-    color: #FFFFFF;
-    display: block;
-    font-family: "Minecraft Seven", sans-serif;
-    font-size: 21px;
-    height: auto;
-    margin: 15px;
-}
-
-article_date, article_subtitle {
-    display: block;
-    font-family: "Minecraft Seven", sans-serif;
-    font-size: 18px;
-    height: auto;
-    margin: 10px;
-}
-
-article_detail {
-    display: block;
-    font-family: "NotoSans Bold", sans-serif;
-    margin: 0 6px;
-    text-align: left;
-}
-
-article_note {
-    background-color: rgba(46, 107, 229, 0.1);
-    border-left: 6px solid #2E6BE5;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 6px 0;
-    padding: 10px;
-}
-
-article_list_title {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left: 6px solid #FFFFFF;
-    display: block;
-    font-size: 17px;
-    margin: 10px 0;
-    padding: 4px 0 4px 10px;
-}
-
-article_list {
-    display: block;
-    margin: 10px 0;
-    padding-left: 16px;
-    position: relative;
-}
-
-article_list:before {
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    content: "";
-    height: 6px;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-}
-
-article_list_level2 {
-    display: block;
-    margin: 10px 0;
-    padding-left: 32px;
-    position: relative;
-}
-
-article_list_level2:before {
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    content: "";
-    height: 6px;
-    left: 16px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-}
-
-article_list_level3 {
-    display: block;
-    margin: 10px 0;
-    padding-left: 48px;
-    position: relative;
-}
-
-article_list_level3:before {
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    content: "";
-    height: 6px;
-    left: 32px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-}
-
 /* 带有图标的按钮 */
 .link_img, .link_img_black {
     height: 14px;
@@ -259,9 +87,9 @@ article_list_level3:before {
 
 /* 侧边栏按钮 */
 .sidebar_btn {
-    background-color: #48494A;
+    background-color: var(--oreui-bg-light);
     border: 2px solid #131313;
-    box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
+    box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px var(--oreui-bg-dark), inset 2px 2px #6D6D6E;
     color: #FFFFFF;
     height: 40px;
     margin: 6px;
@@ -313,12 +141,12 @@ article_list_level3:before {
 
 
 /* Checkbox 复选框 */
-.custom-checkbox {
+.oreui-checkbox {
     display: inline-block;
     margin: 5px;
 }
 
-.custom-checkbox {
+.oreui-checkbox {
     background-color: #8C8D90;
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
@@ -328,40 +156,40 @@ article_list_level3:before {
     width: 20px;
 }
 
-.custom-checkbox:hover {
+.oreui-checkbox:hover {
     background-color: #B1B2B5;
 }
 
-.custom-checkbox:active {
+.oreui-checkbox:active {
     background-color: #58585A;
 }
 
-.custom-checkbox.on {
+.oreui-checkbox.on {
     background-color: var(--oreui-theme);
 }
 
-.custom-checkbox.on:hover {
+.oreui-checkbox.on:hover {
     background-color: #2A641C;
 }
 
-.custom-checkbox.on:active {
+.oreui-checkbox.on:active {
     background-color: var(--oreui-theme-dark);
 }
 
-.custom-checkbox.disabled {
+.oreui-checkbox.disabled {
     background-color: #D0D1D4;
     border: 2px solid #8C8D90;
     box-shadow: none;
     cursor: not-allowed;
 }
 
-.custom-checkbox.disabled:hover, .custom-checkbox.disabled:active {
+.oreui-checkbox.disabled:hover, .oreui-checkbox.disabled:active {
     background-color: #D0D1D4;
     border: 2px solid #8C8D90;
     box-shadow: none;
 }
 
-.custom-checkbox img {
+.oreui-checkbox img {
     display: none;
     height: 27px;
     left: 50%;
@@ -371,22 +199,22 @@ article_list_level3:before {
     width: 27px;
 }
 
-.custom-checkbox.disabled img {
+.oreui-checkbox.disabled img {
     filter: grayscale(100%) brightness(50%);
 }
 
-.custom-checkbox.on img {
+.oreui-checkbox.on img {
     display: block;
 }
 
 
 /* 删除线 */
-del-line {
+.del-line {
     text-decoration: line-through;
 }
 
 /* Divider 分割线 */
-divider {
+.divider {
     background-color: #58585A;
     display: block;
     height: 2px;
@@ -394,8 +222,8 @@ divider {
     width: 100%;
 }
 
-divider-box {
-    box-shadow: inset 0 2px #333334, inset 0 -2px #5A5B5C;
+.divider-box {
+    box-shadow: inset 0 2px var(--oreui-light-bottom), inset 0 -2px var(--oreui-light-top);
     display: block;
     height: 4px;
     margin: 6px 0;
@@ -403,15 +231,15 @@ divider-box {
 }
 
 /* Line 分割线 */
-line {
-    background-color: #48494A;
+.line {
+    background-color: var(--oreui-bg-light);
     display: block;
     height: 2px;
     margin: 1px 0;
     width: 100%;
 }
 
-vertical-line {
+.vertical-line {
     background-color: #FFFFFF;
     display: inline-block;
     height: 100%;
@@ -456,7 +284,7 @@ vertical-line {
     background-color: #D0D1D4;
     border: 2px solid #8C8D90;
     box-shadow: inset 0 -4px #B1B2B5;
-    color: #48494A;
+    color: var(--oreui-bg-light);
     cursor: not-allowed;
 }
 
@@ -531,12 +359,9 @@ vertical-line {
     z-index: 99;
 }
 
-.oreui-card{
+.oreui-card {
     border: 2px solid #1E1E1F;
-    max-width: calc(min(100vw));
-    min-width: 320px;
     outline: none;
-
 }
 
 .modal_area {
@@ -568,17 +393,9 @@ vertical-line {
     z-index: 100;
 }
 
-.modal {
-    background-color: #313233;
-    color: #FFFFFF;
-    display: block;
-    text-align: center;
-}
 
-
-
-.modal_title_area {
-    background-color: #48494A;
+.oreui-title-area {
+    background-color: var(--oreui-bg-light);
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
     display: block;
     font-size: 18px;
@@ -586,7 +403,7 @@ vertical-line {
     position: relative;
 }
 
-.modal_title {
+.oreui-title {
     align-items: center;
     display: flex;
     height: 100%;
@@ -632,9 +449,9 @@ vertical-line {
 
 .modal_checkbox_area {
     align-items: center;
-    background-color: #48494A;
-    border-bottom: 2px solid #333334;
-    border-top: 2px solid #5A5B5C;
+    background-color: var(--oreui-bg-light);
+    border-bottom: 2px solid var(--oreui-light-bottom);
+    border-top: 2px solid var(--oreui-light-top);
     cursor: pointer;
     display: flex;
     justify-content: left;
@@ -643,24 +460,24 @@ vertical-line {
 
 .modal_button_area {
     align-items: center;
-    background-color: #48494A;
-    border-bottom: 2px solid #333334;
-    border-top: 2px solid #5A5B5C;
+    background-color: var(--oreui-bg-light);
+    border-bottom: 2px solid var(--oreui-light-bottom);
+    border-top: 2px solid var(--oreui-light-top);
     display: flex;
     justify-content: center;
     padding: 2px 0;
 }
 
 .modal_textfield_area {
-    background-color: #48494A;
-    border-bottom: 2px solid #333334;
-    border-top: 2px solid #5A5B5C;
+    background-color: var(--oreui-bg-light);
+    border-bottom: 2px solid var(--oreui-light-bottom);
+    border-top: 2px solid var(--oreui-light-top);
     display: block;
     padding: 2px 0;
     text-align: left;
 }
 
-modal_textfield_title {
+.modal_textfield_title {
     margin: 10px;
 }
 
@@ -668,11 +485,11 @@ modal_textfield_title {
     width: 100%;
 }
 
-modal_button_group {
+.modal_button_group {
     width: calc(100% - 20px);
 }
 
-modal_button_list {
+.modal_button_list {
     align-items: center;
     display: flex;
 }
@@ -702,12 +519,6 @@ modal_button_list {
     position: relative; /* 相对定位,用于子元素绝对定位的参考 */
     width: 100%; /* 进度条宽度 */
 }
-
-
-
-
-
-
 
 
 .slider_process {
@@ -906,7 +717,7 @@ modal_button_list {
     margin: 6px;
 }
 
-text-field {
+.text-field {
     display: block;
     flex: 1;
     position: relative;
@@ -917,7 +728,7 @@ text-field {
 }
 
 .input {
-    background-color: #313233;
+    background-color: var(--oreui-bg-dark);
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 4px #242425;
     box-sizing: border-box; /* 包括内边距和边框 */
@@ -934,19 +745,11 @@ text-field {
 }
 
 
-
-
-
-
-
-
-
-
 .disabled_text_field .input {
     background-color: #D0D1D4;
     border: 2px solid #8C8D90;
     box-shadow: inset 0 4px #B1B2B5;
-    color: #48494A;
+    color: var(--oreui-bg-light);
     pointer-events: none;
 }
 
@@ -966,7 +769,7 @@ text-field {
 }
 
 .disabled_text_field .hint {
-    color: #48494A;
+    color: var(--oreui-bg-light);
 }
 
 .text_field_container .custom-button {
@@ -977,43 +780,5 @@ text-field {
     width: 120px;
 }
 
-@font-face {
-    font-family: "Minecraft Seven";
-    src: url("../fonts/minecraft-seven.ttf");
-}
-
-.oreui-header {
-    align-items: center;
-    background-color: #E6E8EB;
-    border-bottom: 4px solid #B1B2B5;
-    display: flex;
-    height: 60px;
-    left: 0;
-    min-width: 330px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 9;
-}
-
-/* 顶栏元素 */
-.header_item, .header_logo {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-}
 
 
-
-
-.oreui-highlight-card{
-    background-color: #48494A;
-    border-bottom: 2px solid #333334;
-    border-top: 2px solid #5A5B5C;
-    padding: 1.03rem;
-}
-
-body {
-    font-family: 'Minecraft Seven', sans-serif !important;
-}

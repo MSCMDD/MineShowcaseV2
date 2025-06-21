@@ -11,7 +11,7 @@ import "../style.css"
 </script>
 
 <template>
-    <div class="modal oreui-card" style="position: relative">
+    <div class="oreui-dark-card oreui-card" style="position: relative">
         <div class="server-image" :style="{ backgroundImage: `url(${server.cover_url})` }">
             <div class="server-badges" v-if="server.is_member">
                 <div class="server-badge member">

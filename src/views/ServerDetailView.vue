@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import Page from "../components/Page.vue";
 
@@ -21,6 +21,17 @@ const online = ref(false);
 
 // 从路由参数获取ID
 const id = ref(route.params.id);
+
+// 监听路由参数变化
+watch(
+  () => route.params.id,
+  (newId) => {
+    if (newId && newId !== id.value) {
+      id.value = newId;
+      refresh();
+    }
+  }
+);
 
 function refresh() {
   console.log(`sending request of ${id.value} to API...`);
@@ -45,15 +56,25 @@ function refresh() {
     server.value = response;
     online.value = validate(server.value.status);
 
-    document.getElementById("title").innerHTML =
-      "服务器详情: " + response.name + " | MSCPO";
+    const titleElement = document.getElementById("title");
+    if (titleElement) {
+      titleElement.innerHTML = "服务器详情: " + response.name + " | MSCPO";
+    } else {
+      document.title = "服务器详情: " + response.name + " | MSCPO";
+    }
 
     const doc = document.getElementById("markdown-section");
-    doc.innerHTML = marked.parse(response.desc, {
-      gfm: true,
-      breaks: true,
-      smartLists: true,
-    });
+    if (doc && response.desc) {
+      if (typeof window.marked !== "undefined") {
+        doc.innerHTML = window.marked.parse(response.desc, {
+          gfm: true,
+          breaks: true,
+          smartLists: true,
+        });
+      } else {
+        doc.innerHTML = `<pre>${response.desc}</pre>`;
+      }
+    }
   });
 }
 

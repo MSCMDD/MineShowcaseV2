@@ -1,54 +1,64 @@
 <script setup>
-
 const TABLE = {
-    home: {display: "首页", link: "/"},
-    list: {display: "服务器列表", link: "/servers.html"}
-}
+  home: { display: "首页", name: "home" },
+  list: { display: "服务器列表", name: "servers" },
+  servers: { display: "服务器列表", name: "servers" },
+};
 
 defineProps({
-    path: Array,
-    customLink: String
-})
+  path: Array,
+  customLink: String,
+});
 
 function display(id) {
-    if (TABLE[id] === null || TABLE[id] === undefined) {
-        return id;
-    }
+  if (TABLE[id] === null || TABLE[id] === undefined) {
+    return id;
+  }
 
-    return TABLE[id].display;
+  return TABLE[id].display;
 }
 
-function link(id) {
-    if (TABLE[id] === null || TABLE[id] === undefined) {
-        return this.prop;
-    }
+function getRouteName(id) {
+  if (TABLE[id] === null || TABLE[id] === undefined) {
+    return null;
+  }
 
-    return TABLE[id].link;
+  return TABLE[id].name;
 }
-
 </script>
 
 <template>
-    <nav class="router">
-        <span style="color: #efefef">当前位置 >> </span>
-        <template v-for="(name,idx) in path">
-            <a class="link-item" v-if="idx!==path.length-1" :href="link(name)">{{ display(name) }}</a>
-            <a class="link-item-active" v-if="idx===path.length-1" :href="link(name)">{{ display(name) }}</a>
-            <span v-if="idx!==path.length-1"> / </span>
-        </template>
-    </nav>
+  <nav class="router">
+    <span style="color: #efefef">当前位置 >> </span>
+    <template v-for="(name, idx) in path" :key="idx">
+      <router-link
+        v-if="idx !== path.length - 1 && getRouteName(name)"
+        class="link-item"
+        :to="{ name: getRouteName(name) }"
+      >
+        {{ display(name) }}
+      </router-link>
+      <span v-else-if="idx !== path.length - 1" class="link-item">
+        {{ display(name) }}
+      </span>
+      <span v-if="idx === path.length - 1" class="link-item-active">
+        {{ display(name) }}
+      </span>
+      <span v-if="idx !== path.length - 1"> / </span>
+    </template>
+  </nav>
 </template>
 
 <style scoped>
-.link-item{
-    color: #bbbbbb;
+.link-item {
+  color: #bbbbbb;
 }
 
-.link-item-active{
-    color: #FFFFFF;
+.link-item-active {
+  color: #ffffff;
 }
 
-.router{
-    margin-bottom: 15px;
+.router {
+  margin-bottom: 15px;
 }
 </style>

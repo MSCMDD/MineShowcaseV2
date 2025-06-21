@@ -3,8 +3,6 @@ export function validate(object) {
 }
 
 export function sound(){
-    const audio = new Audio('click.ogg');
-    audio.play()
-        .then(() => console.log("播放成功"))
-        .catch(error => console.error("播放失败:", error));
+    const audio = new Audio('/assets/click.ogg');
+    audio.play();
 }

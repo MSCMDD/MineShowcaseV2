@@ -1,5 +1,5 @@
 <script setup>
-import { validate } from "../assets/common.js";
+import {sound, validate} from "../assets/common.js";
 
 defineProps({
   server: {},
@@ -107,6 +107,7 @@ import "../style.css";
       <router-link
         :to="{ name: 'server-detail', params: { id: server.id } }"
         class="oreui-button modal_btn oreui-btn-normal"
+        @click="sound()"
         >查看详情</router-link
       >
     </div>

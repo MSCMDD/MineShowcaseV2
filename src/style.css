@@ -46,8 +46,9 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    -webkit-tap-highlight-color: transparent; /* 针对移动端浏览器 */
+    tap-highlight-color: transparent;
 }
-
 main{
     min-height: 100vh;
 }

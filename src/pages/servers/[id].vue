@@ -1,15 +1,20 @@
 <script setup>
 import {onMounted, ref, watch} from "vue";
 import {useRoute} from "vue-router";
-import Page from "../components/Page.vue";
+import Page from "@/components/Page.vue";
 
-import "../assets/css/wiki.css";
-import "../assets/common.js";
-import "../assets/fonts/fa/css/fa-all.min.css";
-import {validate} from "../assets/common.js";
-import Router from "../components/Router.vue";
+import "@/assets/css/wiki.css";
+import "@/assets/common.js";
+import "@/assets/fonts/fa/css/fa-all.min.css";
+import {validate} from "@/assets/common.js";
+import Router from "@/components/Router.vue";
 
-import "../assets/marked.min.js"
+import "@/assets/marked.min.js"
+
+definePage({
+  name: 'server-detail',
+  props: true
+})
 
 // 获取路由对象和参数
 const route = useRoute();

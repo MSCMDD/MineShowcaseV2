@@ -1,12 +1,16 @@
 <script setup>
 import {onMounted, ref} from "vue";
-import ServerCard from "../components/ServerCard.vue";
+import ServerCard from "@/components/ServerCard.vue";
 
-import "../assets/fonts/fa/css/fa-all.min.css";
+import "@/assets/fonts/fa/css/fa-all.min.css";
 
-import {validate} from "../assets/common.js";
-import Page from "../components/Page.vue";
-import Router from "../components/Router.vue";
+import {validate} from "@/assets/common.js";
+import Page from "@/components/Page.vue";
+import Router from "@/components/Router.vue";
+
+definePage({
+  name: 'servers'
+})
 
 onMounted(() => refresh(0));
 

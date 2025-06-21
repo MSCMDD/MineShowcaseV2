@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import Page from "../components/Page.vue";
 
 import "../assets/css/wiki.css";
@@ -8,8 +9,8 @@ import "../assets/fonts/fa/css/fa-all.min.css";
 import { validate } from "../assets/common.js";
 import Router from "../components/Router.vue";
 
-// 获取路由参数
-const props = defineProps(["id"]);
+// 获取路由对象和参数
+const route = useRoute();
 
 onMounted(refresh);
 
@@ -18,28 +19,14 @@ const gallery = ref("");
 const page = ref("desc");
 const online = ref(false);
 
-let id = props.id || 79;
-
-function queryURLArgument(name) {
-  let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-  let r = window.location.search.substring(1).match(reg); //获取url中"?"符后的字符串并正则匹配
-  let context = "";
-  if (r != null) context = r[2];
-  reg = null;
-  r = null;
-  if (context == null || context === "" || context === undefined) {
-    return undefined;
-  }
-  return context;
-}
+// 从路由参数获取ID
+const id = ref(route.params.id);
 
 function refresh() {
-  id = queryURLArgument("id");
-
-  console.log(`sending request of ${id} to API...`);
+  console.log(`sending request of ${id.value} to API...`);
 
   $.ajax({
-    url: `https://mscpoapi.crashvibe.cn/v1/servers/${id}/gallerys`,
+    url: `https://mscpoapi.crashvibe.cn/v1/servers/${id.value}/gallerys`,
     method: "GET",
     timeout: 0,
   }).done(function (response) {
@@ -49,7 +36,7 @@ function refresh() {
   });
 
   $.ajax({
-    url: `https://mscpoapi.crashvibe.cn/v1/servers/info/${id}`,
+    url: `https://mscpoapi.crashvibe.cn/v1/servers/info/${id.value}`,
     method: "GET",
     timeout: 0,
   }).done(function (response) {

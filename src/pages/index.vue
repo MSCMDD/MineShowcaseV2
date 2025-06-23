@@ -1,7 +1,11 @@
 <script setup>
-import Page from "../components/Page.vue";
-import "../assets/fonts/fa/css/fa-all.min.css";
-import ServerCard from "../components/ServerCard.vue";
+import Page from "@/components/Page.vue";
+import "@/assets/fonts/fa/css/fa-all.min.css";
+import ServerCard from "@/components/ServerCard.vue";
+
+definePage({
+  name: 'home'
+})
 
 const PH_SERVER = {
   id: -1,
@@ -111,7 +115,7 @@ const PH_SERVER = {
             >
           </div>
           <div class="about-image scan-wrap">
-            <img src="/assets/images/logo.png" alt="关于我们" />
+            <img src="/assets/images/logo.svg" alt="关于我们" />
           </div>
         </div>
       </div>
